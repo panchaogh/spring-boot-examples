@@ -2,7 +2,6 @@ package com.panchao.springboothelloworld.controller;
 
 import org.springframework.boot.SpringApplication;
 import org.springframework.boot.autoconfigure.EnableAutoConfiguration;
-import org.springframework.boot.autoconfigure.SpringBootApplication;
 import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RestController;
 
@@ -19,11 +18,12 @@ import java.util.Map;
 //表示该接口全部返回json格式
 @RestController
 @RequestMapping("/HelloWorldController")
-public class HelloWorldController {
+class HelloWorldController {
     @RequestMapping("/index")
     public String index(){
         return "success";
     }
+
     @RequestMapping("/getMap")
     public Map<String,Object> getMap(){
         Map<String,Object> result = new HashMap<>();
