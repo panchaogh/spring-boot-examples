@@ -1,0 +1,25 @@
+<html xmlns:th="http://www.thymeleaf.org"
+      xmlns:layout="http://www.ultraq.net.nz/thymeleaf/layout">
+<head>
+    <title th:text="${userModel.title}">查看用户信息</title>
+    <meta charset="UTF-8">
+</head>
+<body>
+<div th:replace="~{fragments/header :: header}">...</div>
+<h3 th:text="${userModel.title}">Welcome to PanChan's Blog</h3>
+<div>
+    <a href="/users">返回主页</a>
+</div>
+<div>
+    <p><strong>ID:</strong><span id="id" th:text="${userModel.user.id}">1</span></p>
+    <p><strong>Name:</strong><span id="name" th:text="${userModel.user.name}">PanChao</span></p>
+    <p><strong>Age:</strong><span id="email" th:text="${userModel.user.email}">pcstartop@qq.com</span></p>
+</div>
+
+<div>
+    <a th:href="@{'/users/delete/' + ${userModel.user.id}}">删除 </a>
+    | <a th:href="@{'/users/modify/' + ${userModel.user.id}}">修改</a>
+</div>
+<div th:replace="~{fragments/footer :: footer}">...</div>
+</body>
+</html>
