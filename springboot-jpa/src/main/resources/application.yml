@@ -3,9 +3,9 @@ spring:
     encoding: UTF-8 #字符编码
     cache: false # 热部署静态文件
     mode: HTML5 # 使用HTML5标准
-#  h2:
-#    console:
-#      enabled: true #使用h2控制台
+  h2:
+    console:
+      enabled: true #使用h2控制台
   datasource: #数据源配置
     url: jdbc:mysql://127.0.0.1:3306/test?useSSL=false&serverTimezone=UTC&characterEncoding=utf-8 #数据库URL
     username: test #用户名
