@@ -50,7 +50,7 @@
             <artifactId>mysql-connector-java</artifactId>
             <scope>runtime</scope>
         </dependency>
-
+        <!-- h2数据库jar包 -->
         <dependency>
             <groupId>com.h2database</groupId>
             <artifactId>h2</artifactId>

@@ -3,8 +3,6 @@ package top.pcstar.springbootthymeleaf.repository;
 import org.springframework.data.repository.CrudRepository;
 import top.pcstar.springbootthymeleaf.domain.User;
 
-import java.util.List;
-
 /**
  * @Author: PanChao
  * @Description: 用户仓库
