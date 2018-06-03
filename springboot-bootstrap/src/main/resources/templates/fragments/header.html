@@ -1,13 +1,37 @@
 <!DOCTYPE html>
-<html lang="en">
+<html xmlns:th="http://www.thymeleaf.org"
+      xmlns:layout="http://www.ultraq.net.nz/thymeleaf/layout"
+      th:fragment="header">
 <head>
     <meta charset="UTF-8">
-    <title>Thymeleaf in action</title>
+    <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
+
+    <!-- Bootstrap core CSS -->
+    <link href="../../css/bootstrap.min.css" th:href="@{/css/bootstrap.min.css}" rel="stylesheet">
+
+    <!-- Custom styles -->
+    <link href="../../css/blog.css" th:href="@{/css/blog.css}" rel="stylesheet">
+
+    <title>Bootstrap in action</title>
+
 </head>
 <body>
-<div data-th-fragment="header">
-    <h1>Thymeleaf in action</h1>
-    <a href="/users">首页</a>
-</div>
+<nav class="navbar navbar-inverse bg-inverse navbar-toggleable-md">
+    <div class="container">
+        <button class="navbar-toggler navbar-toggler-right" type="button" data-toggle="collapse" data-target="#navbarsContainer">
+            <span class="navbar-toggler-icon"></span>
+        </button>
+        <a class="navbar-brand" href="/" th:href="@{~/}">
+            NewStarBlog
+        </a>
+        <div id="navbarsContainer" class="collapse navbar-collapse">
+            <ul class="navbar-nav mr-auto">
+                <li class="nav-item">
+                    <a class="nav-link" href="/users" th:href="@{~/users}">首页</a>
+                </li>
+            </ul>
+        </div>
+    </div>
+</nav>
 </body>
 </html>

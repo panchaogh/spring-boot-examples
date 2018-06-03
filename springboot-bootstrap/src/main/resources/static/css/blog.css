@@ -44,8 +44,25 @@
 
 .blog-footer {
   padding: 2.5rem 0;
-  color: #999;
+  color: #fff;
   text-align: center;
-  background-color: #f9f9f9;
+  background-color: #000000;
   border-top: .05rem solid #e5e5e5;
+}
+
+.blog-content-container {
+    margin-top: 2.0em;
+    background-color: #fff;
+}
+
+.blog-avatar-50{
+    border-radius: 50%;
+    height: 50px;
+    width: 50px;
+}
+
+.blog-avatar-100{
+    border-radius: 50%;
+    height: 100px;
+    width: 100px;
 }
