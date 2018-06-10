@@ -1,0 +1,24 @@
+<!DOCTYPE html>
+<html xmlns:th="http://www.thymeleaf.org"
+      xmlns:layout="http://www.ultraq.net.nz/thymeleaf/layout">
+<head th:replace="~{fragments/header :: header}">
+</head>
+<body>
+<!-- Page Content -->
+<div class="container blog-content-container"><!-- /.container -->
+    <h3 th:text="${userModel.title}">Welcome to PanChan's Blog</h3>
+    <form action="/users" th:action="@{/users}" method="POST" th:object="${userModel.user}">
+        <input type="hidden" name="id" th:value="*{id}">
+        名称:
+        <input class="form-control" type="text" name="name" th:value="*{name}">
+        <br>
+        Email:
+        <input type="text" class="form-control" name="email" th:value="*{email}">
+        <br>
+        <input class="btn btn-primary" type="submit" value="提交">
+        <a class="btn btn-primary" href="/users">返回</a>
+    </form>
+</div><!-- /.container -->
+<div th:replace="~{fragments/footer :: footer}">...</div>
+</body>
+</html>
