@@ -1,0 +1,37 @@
+server:
+  port: 8080
+debug: true
+spring:
+  # THYMELEAF
+  thymeleaf:
+    encoding: UTF-8
+    # 热部署静态文件
+    cache: true
+    # 使用HTML5标准
+    mode: HTML5
+  #数据源配置
+  datasource:
+    #数据库URL
+    url: jdbc:mysql://127.0.0.1:3306/test?useSSL=false&serverTimezone=UTC&characterEncoding=utf-8
+    #用户名
+    username: test
+    #密码
+    password: 888888
+    driver-class-name: com.mysql.jdbc.Driver
+  #配置jpa
+  jpa:
+    #控制台是否显示sql
+    show-sql: true
+    hibernate:
+      #应用启动时自动创建删除数据库
+      ddl-auto: create-drop
+  data:
+    # 内嵌 Elasticsearch 实例。默认存储位置是工作目录的 elastic 目录 (测试用)
+    #spring.data.elasticsearch.properties.path.home=target/elastic
+    # 远程服务
+    elasticsearch:
+      cluster-nodes: localhost:9300
+      properties:
+        transport:
+          tcp:
+            connect_timeout: 120s # 设置连接超时时间
