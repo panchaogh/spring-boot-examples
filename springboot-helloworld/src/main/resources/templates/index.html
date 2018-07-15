@@ -1,0 +1,20 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Title</title>
+</head>
+<body>
+${result.name}
+<#if result.sex=="1">
+男
+<#elseif result.sex=="2">
+女
+<#else>
+其他
+</#if>
+<#list result.listResult as user>
+${user}
+</#list>
+</body>
+</html>
