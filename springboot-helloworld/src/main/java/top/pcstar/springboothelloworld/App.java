@@ -2,6 +2,10 @@ package top.pcstar.springboothelloworld;
 
 import org.springframework.boot.SpringApplication;
 import org.springframework.boot.autoconfigure.SpringBootApplication;
+import org.springframework.boot.autoconfigure.domain.EntityScan;
+import org.springframework.data.jpa.repository.config.EnableJpaRepositories;
+
+import javax.persistence.Entity;
 
 /**
  * @Author: PanChao
@@ -10,6 +14,8 @@ import org.springframework.boot.autoconfigure.SpringBootApplication;
  */
 //@EnableAutoConfiguration
 //@ComponentScan(basePackages = "top.pcstar.springboothelloworld.controller")
+//@EntityScan("top.pcstar.springboothelloworld.entity")
+//@EnableJpaRepositories("top.pcstar.springboothelloworld.dao")
 @SpringBootApplication
 public class App {
     public static void main(String[] args) {
