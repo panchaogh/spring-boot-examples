@@ -9,7 +9,6 @@ import org.springframework.boot.autoconfigure.jdbc.DataSourceProperties;
 import org.springframework.boot.context.properties.ConfigurationProperties;
 import org.springframework.context.annotation.Bean;
 import org.springframework.context.annotation.Configuration;
-import org.springframework.context.annotation.Primary;
 import org.springframework.core.io.support.PathMatchingResourcePatternResolver;
 import org.springframework.jdbc.datasource.DataSourceTransactionManager;
 
@@ -17,70 +16,68 @@ import javax.sql.DataSource;
 
 /**
  * @Author: PanChao
- * @Description: DataSource1Config
+ * @Description: DataSource2Config
  * @Date: Created in 15:15 2018/7/16
  */
-@MapperScan(basePackages = "top.pcstar.springbootdatasource.test1",sqlSessionFactoryRef = "test1SqlSessionFactory")
+@MapperScan(basePackages = "top.pcstar.springbootdatasource.test2", sqlSessionFactoryRef = "test2SqlSessionFactory")
 @Configuration
-public class DataSource1Config {
+public class DataSource2Config {
     /**
      * 获取DataSourceProperties配置文件
+     *
      * @return
      */
-    @Primary
-    @Bean("test1DataSourceProperties")
-    @ConfigurationProperties("spring.datasource.test1")
-    public DataSourceProperties getDataSourceProperties(){
+    @Bean("test2DataSourceProperties")
+    @ConfigurationProperties("spring.datasource.test2")
+    public DataSourceProperties getDataSourceProperties() {
         return new DataSourceProperties();
     }
+
     /**
      * 创建数据源
      *
      * @return
      */
-    @Primary
-    @Bean("test1DataSource")
+    @Bean("test2DataSource")
     public DataSource getDataSource() {
         return getDataSourceProperties().initializeDataSourceBuilder().build();
     }
 
     /**
-     * test1 sql会话工厂
+     * test2 sql会话工厂
      *
-     * @param test1DataSource
+     * @param test2DataSource
      * @return
      * @throws Exception
      */
-    @Primary
-    @Bean("test1SqlSessionFactory")
-    public SqlSessionFactory getSqlSessionFactory(@Qualifier("test1DataSource") DataSource test1DataSource) throws Exception {
+    @Bean("test2SqlSessionFactory")
+    public SqlSessionFactory getSqlSessionFactory(@Qualifier("test2DataSource") DataSource test2DataSource) throws Exception {
         SqlSessionFactoryBean sqlSessionFactoryBean = new SqlSessionFactoryBean();
-        sqlSessionFactoryBean.setDataSource(test1DataSource);
+        sqlSessionFactoryBean.setDataSource(test2DataSource);
         sqlSessionFactoryBean.setMapperLocations(new PathMatchingResourcePatternResolver()
-                .getResources("classpath:mapper/test1/*.xml"));
+                .getResources("classpath:mapper/test2/*.xml"));
         return sqlSessionFactoryBean.getObject();
     }
 
     /**
-     * test1 事务管理
+     * test2 事务管理
      *
-     * @param test1DataSource
+     * @param test2DataSource
      * @return
      */
-    @Primary
-    @Bean("test1DataSourceTransactionManager")
-    public DataSourceTransactionManager getDataSourceTransactionManager(@Qualifier("test1DataSource") DataSource test1DataSource) {
-        return new DataSourceTransactionManager(test1DataSource);
+    @Bean("test2DataSourceTransactionManager")
+    public DataSourceTransactionManager getDataSourceTransactionManager(@Qualifier("test2DataSource") DataSource test2DataSource) {
+        return new DataSourceTransactionManager(test2DataSource);
     }
 
     /**
-     * test1 sql会话模板
-     * @param test1SqlSessionFactory
+     * test2 sql会话模板
+     *
+     * @param test2SqlSessionFactory
      * @return
      */
-    @Primary
-    @Bean("test1SqlSessionTemplate")
-    public SqlSessionTemplate getSqlSessionTemplate(@Qualifier("test1SqlSessionFactory") SqlSessionFactory test1SqlSessionFactory) {
-        return new SqlSessionTemplate(test1SqlSessionFactory);
+    @Bean("test2SqlSessionTemplate")
+    public SqlSessionTemplate getSqlSessionTemplate(@Qualifier("test2SqlSessionFactory") SqlSessionFactory test2SqlSessionFactory) {
+        return new SqlSessionTemplate(test2SqlSessionFactory);
     }
 }
