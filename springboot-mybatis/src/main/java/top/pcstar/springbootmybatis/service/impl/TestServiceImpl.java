@@ -14,10 +14,10 @@ import top.pcstar.springbootmybatis.service.TestService;
  */
 @Service
 public class TestServiceImpl implements TestService {
-//    @Autowired
-//    private TestMapper testMapper;
     @Autowired
-    private Test1Mapper testMapper;
+    private TestMapper testMapper;
+//    @Autowired
+//    private Test1Mapper testMapper;
     @Override
     public Test getTestByName(String name) {
         System.out.println("getTestByName");
