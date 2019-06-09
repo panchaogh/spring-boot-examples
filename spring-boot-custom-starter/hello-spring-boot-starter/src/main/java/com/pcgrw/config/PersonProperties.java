@@ -5,7 +5,7 @@ import org.springframework.boot.context.properties.ConfigurationProperties;
 
 /**
  * @ClassName PersonProperties
- * @Description TODO
+ * @Description 自定义属性类
  * @Author panchao
  * @Date 2019/6/9 12:35
  * @Version 1.0
