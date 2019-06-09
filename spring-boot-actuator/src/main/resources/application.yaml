@@ -21,3 +21,4 @@ spring:
     user:
       name: admin #监控点登录名称
       password: 123456 #监控点登录密码
+      roles: SUPERUSER
