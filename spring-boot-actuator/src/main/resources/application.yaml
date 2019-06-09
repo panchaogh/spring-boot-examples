@@ -1,0 +1,23 @@
+info: #配置项目信息
+  app:
+    name: spring-boot-actuator
+    version: V1.0.0
+    test: test
+management:
+  endpoint:
+    shutdown:
+      enabled: true #启用接口关闭 Spring Boot
+    health:
+      show-details: always #health接口展示明细信息
+  endpoints:
+    web:
+      exposure:
+        include: "*" #打开所有的监控点
+      base-path: /actuator #定制监控点基础路径
+  server:
+    port: 8099 #设置监控点端口
+spring:
+  security:
+    user:
+      name: admin #监控点登录名称
+      password: 123456 #监控点登录密码
